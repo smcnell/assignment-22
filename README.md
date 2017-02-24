@@ -45,7 +45,7 @@ npm run gen-seed-data
 
 ##### 6. Ensure the data seeded properly
 + In MongoChef: Checkout «your-project-name»\_dev
-+ In browser: go to `localhost:3000/api/items`
++ In browser: go to `localhost:3000/api/item`
 
 ##### 7. Workflow
 Do scss and javascript work in the `src/` directory. It will compile to the `dist/` with the taskrunner.
@@ -85,7 +85,7 @@ The data saved to the backend should have the following structure:
 }
 ```
 
-You will send all GET, POST, PUT requests to the url-root `/api/items` namespace. 
+You will send all GET, POST, PUT requests to the url-root `/api/item` namespace. 
 
 ### Explorer Mode
 Create a route and view that will allow a user to edit an input.
