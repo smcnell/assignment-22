@@ -43,8 +43,9 @@ You only have to do this once. control-c when done
 npm run gen-seed-data
 ```
 
-##### 6. Checkout «your-project-name»\_dev in MongoChef to see if the seeded data is there.
-
+##### 6. Ensure the data seeded properly
++ In MongoChef: Checkout «your-project-name»\_dev
++ In browser: go to `/api/item`
 
 ##### 7. Workflow
 Do scss and javascript work in the `src/` directory. It will compile to the `dist/` with the taskrunner.
@@ -71,7 +72,6 @@ Create the following routes:
 'item/:id' (shows a single listing)
 ```
 
-
 The data saved to the backend should have the following structure:
 
 ```
@@ -84,6 +84,8 @@ The data saved to the backend should have the following structure:
 	category: STRING ('optional')
 }
 ```
+
+You will send all GET, POST, PUT requests to the url-root `/api/item` namespace. 
 
 ### Explorer Mode
 Create a route and view that will allow a user to edit an input.
