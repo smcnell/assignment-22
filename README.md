@@ -85,7 +85,7 @@ The data saved to the backend should have the following structure:
 }
 ```
 
-You will send all GET, POST, PUT requests to the url-root `/api/item` namespace. 
+You will send all GET, POST, PUT requests to the url-root `/api/items` namespace. 
 
 ### Explorer Mode
 Create a route and view that will allow a user to edit an input.
