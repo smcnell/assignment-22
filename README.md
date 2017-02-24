@@ -45,7 +45,7 @@ npm run gen-seed-data
 
 ##### 6. Ensure the data seeded properly
 + In MongoChef: Checkout «your-project-name»\_dev
-+ In browser: go to `/api/item`
++ In browser: go to `localhost:3000/api/items`
 
 ##### 7. Workflow
 Do scss and javascript work in the `src/` directory. It will compile to the `dist/` with the taskrunner.

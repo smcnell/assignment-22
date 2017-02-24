@@ -10,13 +10,13 @@ apiRouter
 /*
  * NOTE: the route should have a name that matches the name of the data-table
  */
- .get('/item', function(req, res){
+ .get('/items', function(req, res){
    ItemModel.find(req.query , function(err, results){
      if(err) return res.json(err)
      res.json(results)
    })
  })
- .post('/item', function(req, res){
+ .post('/items', function(req, res){
      let newRecord = new ItemModel(req.body)
 
      newRecord.save(function(err, record){
@@ -29,14 +29,14 @@ apiRouter
 
 
 apiRouter
- .get('/item/:_id', function(req, res){
+ .get('/items/:_id', function(req, res){
    ItemModel.findById(req.params._id, "-password", function(err, record){
      if(err || !record ) return res.json(err)
      res.json(record)
    })
  })
 
- .put('/item/:_id', function(req, res){
+ .put('/items/:_id', function(req, res){
 
    ItemModel.findByIdAndUpdate(req.params._id, req.body, function(err, record){
        if (err) {
@@ -51,7 +51,7 @@ apiRouter
    })
  })
 
- .delete('/item/:_id', function(req, res){
+ .delete('/items/:_id', function(req, res){
    ItemModel.remove({ _id: req.params._id}, (err) => {
      if(err) return res.json(err)
      res.json({
