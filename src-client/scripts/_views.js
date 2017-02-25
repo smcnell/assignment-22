@@ -6,10 +6,14 @@ import {ListingModel, ListingCollection} from './_models.js'
 export const HomeView = Backbone.View.extend({
 	el: '#app-container',
 
-	// events: {
-	// 	'click .item-details' : 'handleOneItemDetails',
-  //   'click .add-your-own-item' : 'handleForm'
-	// },
+	events: {
+		'click .item-details' : 'handleOneItemDetails',
+    'click .add-your-own-item' : 'handleForm'
+	},
+
+  handleForm: function(evt){
+  window.location.hash = `new`
+},
 
   _buildEachItem: function(theItemModels){
 		let htmlStr = theItemModels.map(function(singleItemModel){
@@ -49,6 +53,7 @@ console.log(singleItemModel.attributes)
 
 				</tbody>
 			</table>
+      <h3 class= "add-your-own-item"> Unwanted Stuff?  Click HERE to sell your own item on Meg's List </h3>
 
 		`
 	},

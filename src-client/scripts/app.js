@@ -28,11 +28,12 @@ const AppRouter =  Backbone.Router.extend({
     let itemsViewInstance = new HomeView()
     itemsViewInstance.render(itemsCollectionsInstance.models)
   })
-}
+},
 
-// showNewForm: function(){
-//
-// }
+showNewForm: function(){
+  let formViewInstance = new FormView()
+  formViewInstance.render()
+},
 
 
 })
