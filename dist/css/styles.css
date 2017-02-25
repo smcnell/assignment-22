@@ -2,10 +2,31 @@
   box-sizing: border-box; }
 
 body {
-  background: limegreen; }
+  background: #96281B; }
+
+#app-container {
+  background: #fff; }
+
+label {
+  font-size: 21px; }
+
+form {
+  padding: 20px; }
 
 h2 {
-  color: #333;
-  border-bottom: 4px solid #333; }
+  padding: 10px; }
+
+input {
+  padding: 10px 6px;
+  margin-left: 20px;
+  font-size: 18px;
+  border: none;
+  border-bottom: 2px solid  #96281B; }
+
+table {
+  font-size: 21px; }
+
+table img {
+  width: 80px; }
 
 /*# sourceMappingURL=styles.css.map*/
