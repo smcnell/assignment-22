@@ -1,8 +1,10 @@
+import Backbone from 'backbone'
+import {ListingModel} from './_models.js'
 export const FormView = Backbone.View.extend({
 	el: '#app-container',
 
 	events: {
-    		'submit #form-newband' : 'handleFormSubmit'
+    		'submit #form-newItem' : 'handleFormSubmit'
 
 	},
 
@@ -10,30 +12,21 @@ export const FormView = Backbone.View.extend({
 
   handleFormSubmit: function(evt){
 		evt.preventDefault();
-		//DO VALIDATION LOGIC HERE
-
 		console.log('form submitted')
 		let formEl = evt.target
-
-
 		let dataToBeSaved = {
 			item : formEl.item.value ,
 			price : parseInt(formEl.price.value),
 			forSale : formEl.forsale.checked,
-			description : parseInt(formEl.description.value),
+			description : formEl.description.value,
 			imgLink : formEl.imagelink.value,
-			category : formEl.category.value,
+			category : formEl.category.value.toLowerCase(),
 
 		}
 
 		let newItemModl = new ListingModel()
 		newItemModl.set(dataToBeSaved)
-
-		let viewInstance = this
 		newItemModl.save().then(function(){
-			// window.location.hash = '«where-i-wanna-nav-to»'
-			// this.el.innerHTML ... NO
-			viewInstance.el.innerHTML = `<h1> ${newItemModl.get('item')} SAVED!!!</h1>`
 			window.location.hash = ''
 		})
 
