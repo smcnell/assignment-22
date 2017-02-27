@@ -18,3 +18,20 @@ console.log(rawServerRes)
 return rawServerRes
 },
 })
+
+export const SingleCollection = Backbone.Collection.extend({
+  initialize: function(itemId){
+
+	this.url= `/api/item/${itemId}`
+},
+
+parse: function(rawServerRes){
+console.log('parsing Response')
+console.log(rawServerRes)
+return rawServerRes
+},
+model: ListingModel,
+url: ''
+
+
+})

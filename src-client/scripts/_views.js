@@ -7,9 +7,16 @@ export const HomeView = Backbone.View.extend({
 	el: '#app-container',
 
 	events: {
-		'click .item-details' : 'handleOneItemDetails',
+		'click .one-listing' : 'handleItemClick',
     'click .add-your-own-item' : 'handleForm'
 	},
+
+  handleItemClick: function(evt){
+	let clickedIconEl=evt.currentTarget
+	console.log(clickedIconEl)
+	console.log(clickedIconEl.dataset.itemid)
+	window.location.hash = `item/${clickedIconEl.dataset.itemid}`
+},
 
   handleForm: function(evt){
   window.location.hash = `new`
@@ -19,7 +26,7 @@ export const HomeView = Backbone.View.extend({
 		let htmlStr = theItemModels.map(function(singleItemModel){
 console.log(singleItemModel.attributes)
     	return `
-			 <tr>
+			 <tr class="one-listing" data-itemid= "${singleItemModel.attributes._id}">
 			<td>${singleItemModel.attributes.item}</td>
 			<td>$${singleItemModel.attributes.price}</td>
 			<td>${singleItemModel.attributes.description}</td>
@@ -53,7 +60,7 @@ console.log(singleItemModel.attributes)
 
 				</tbody>
 			</table>
-      <h3 class= "add-your-own-item"> Unwanted Stuff?  Click HERE to sell your own item on Meg's List </h3>
+      <h3 class= "add-your-own-item"> Unwanted Stuff?  Click <span>HERE</span> to sell your own item on Meg's List </h3>
 
 		`
 	},

@@ -4,9 +4,11 @@ import Backbone from 'backbone';
 
 console.log('whaaat')
 
-import {ListingModel, ListingCollection} from './_models.js'
+import {ListingModel, ListingCollection, SingleCollection} from './_models.js'
 import {HomeView} from './_views.js'
 import {FormView} from './_formview.js'
+import {SingleItemView} from './_singleview.js'
+
 
 const AppRouter =  Backbone.Router.extend({
 	initialize: function(){
@@ -33,6 +35,19 @@ const AppRouter =  Backbone.Router.extend({
 showNewForm: function(){
   let formViewInstance = new FormView()
   formViewInstance.render()
+},
+
+showSingleItem: function(itemId){
+  let singleListing = new SingleCollection(itemId)
+  singleListing.fetch().then(function(serverRes){
+    console.log(serverRes)
+    let singleListingResults= serverRes
+    let viewInstance= new SingleItemView()
+
+    viewInstance.render(singleListingResults)
+
+
+  })
 },
 
 

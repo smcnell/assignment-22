@@ -3,7 +3,10 @@ export const FormView = Backbone.View.extend({
 
 	events: {
     		'submit #form-newband' : 'handleFormSubmit'
+
 	},
+
+
 
   handleFormSubmit: function(evt){
 		evt.preventDefault();
@@ -14,23 +17,23 @@ export const FormView = Backbone.View.extend({
 
 
 		let dataToBeSaved = {
-			agentName : formEl.agent.value ,
-			albumArt : "103",
-			artist : formEl.artist.value,
-			bandMembers : parseInt(formEl.members.value) ,
-			bookingCost : parseInt(formEl.cost.value) ,
-			country : formEl.country.value,
-			onTour : formEl.ontour.checked
+			item : formEl.item.value ,
+			price : parseInt(formEl.price.value),
+			forSale : formEl.forsale.checked,
+			description : parseInt(formEl.description.value),
+			imgLink : formEl.imagelink.value,
+			category : formEl.category.value,
+
 		}
 
-		let newBandModl = new BandModel()
-		newBandModl.set(dataToBeSaved)
+		let newItemModl = new ListingModel()
+		newItemModl.set(dataToBeSaved)
 
 		let viewInstance = this
-		newBandModl.save().then(function(){
+		newItemModl.save().then(function(){
 			// window.location.hash = '«where-i-wanna-nav-to»'
 			// this.el.innerHTML ... NO
-			// viewInstance.el.innerHTML = `<h1> ${newBandModl.get('artist')} SAVED!!!</h1>`
+			viewInstance.el.innerHTML = `<h1> ${newItemModl.get('item')} SAVED!!!</h1>`
 			window.location.hash = ''
 		})
 

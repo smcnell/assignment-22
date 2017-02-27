@@ -29,4 +29,8 @@ table {
 table img {
   width: 80px; }
 
+.add-your-own-item span {
+  color: blue;
+  cursor: pointer; }
+
 /*# sourceMappingURL=styles.css.map*/
