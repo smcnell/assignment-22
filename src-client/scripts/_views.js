@@ -26,13 +26,18 @@ export const HomeView = Backbone.View.extend({
 		let htmlStr = theItemModels.map(function(singleItemModel){
 console.log(singleItemModel.attributes)
     	return `
-			 <tr class="one-listing" data-itemid= "${singleItemModel.attributes._id}">
-			<td>${singleItemModel.attributes.item}</td>
-			<td>$${singleItemModel.attributes.price}</td>
-			<td>${singleItemModel.attributes.description}</td>
-			<td><img src="${singleItemModel.attributes.imgLink}"></i></td>
-			</tr>
-			`
+      <div class="col-sm-6 col-md-4" >
+			  <div class="thumbnail active-icon one-listing" data-itemid= "${singleItemModel.attributes._id}">
+           <img src="${singleItemModel.attributes.imgLink}" alt="...">
+           <div class="caption">
+            <h3>${singleItemModel.attributes.item}</h3>
+            <p>$${singleItemModel.attributes.price}</p>
+            <p>${singleItemModel.attributes.description}</p>
+           </div>
+        </div>
+      </div>
+      `
+
 		}).join('')
 
 		return htmlStr
@@ -45,21 +50,10 @@ console.log(singleItemModel.attributes)
 		return `
     <h1> Meg's List </h2>
 			<h2 class='bg-primary'>Items for Sale</h2>
-			<table class="table table-striped" id="form-newband">
-				<thead>
-					<tr>
-						<th>Item</th>
-						<th>Price</th>
-						<th>Description</th>
-						<th>Image</th>
+			<div class="row">
 
-					</tr>
-				</thead>
-				<tbody>
 					${ this._buildEachItem(theItemModels) }
-
-				</tbody>
-			</table>
+      </div>
       <h3 class= "add-your-own-item"> Unwanted Stuff?  Click <span>HERE</span> to sell your own item on Meg's List </h3>
 
 		`
