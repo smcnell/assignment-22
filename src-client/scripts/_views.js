@@ -8,7 +8,10 @@ export const HomeView = Backbone.View.extend({
 
 	events: {
 		'click .one-listing' : 'handleItemClick',
-    'click .add-your-own-item' : 'handleForm'
+    'click .add-your-own-item' : 'handleForm',
+    'click .sell': 'handleForm'
+
+
 	},
 
   handleItemClick: function(evt){
@@ -48,14 +51,18 @@ console.log(singleItemModel.attributes)
 
 
 		return `
+  <div class="active-container">
     <h1> Meg's List </h2>
-			<h2 class='bg-primary'>Items for Sale</h2>
+    <div class="navbar">
+			<h2 class='bg-primary forSaleItems'>Items for Sale</h2>
+      <h2 class="sell"> Sell Now </h2>
+    </div>
 			<div class="row">
 
 					${ this._buildEachItem(theItemModels) }
       </div>
-      <h3 class= "add-your-own-item"> Unwanted Stuff?  Click <span>HERE</span> to sell your own item on Meg's List </h3>
-
+      <h3 class= "add-your-own-item"> Unwanted Stuff?  Click <span>HERE</span> to sell your own items on Meg's List </h3>
+  </div>
 		`
 	},
 

@@ -34,7 +34,7 @@ export const FormView = Backbone.View.extend({
 
 	_buildFormHtmlTemplate: function(){
 		return `
-    <h2 class="bg-info">New Item</h2>
+    <h2 class="bg-info titleNew">New Item</h2>
 <form class="" id="form-newItem">
 <div class=" field_item">
   <label>Item</label>
@@ -73,7 +73,7 @@ export const FormView = Backbone.View.extend({
 
 <hr/>
 
-  <button class="btn btn-success" type="submit">Submit</button>
+  <button class="btn btn-success mybutton" type="submit">Submit</button>
   <!-- <button class="btn btn-default">Reset</button> -->
 </div>
 </form>
